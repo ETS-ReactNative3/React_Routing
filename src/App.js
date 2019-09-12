@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import NavBar from "./components/navbar";
 import Products from "./components/products";
 import Posts from "./components/posts";
@@ -7,12 +8,18 @@ import Dashboard from "./components/admin/dashboard";
 import ProductDetails from "./components/productDetails";
 import NotFound from "./components/notFound";
 import "./App.css";
-
+// Route component: If the path is /products it will the component.
 class App extends Component {
   render() {
     return (
       <div>
         <NavBar />
+        <div className="content">
+          <Route path="/products" component={Products} />
+          <Route path="/posts" component={Posts} />
+          <Route path="/admin" component={Dashboard} />
+          <Route path="/" component={Home} />
+        </div>
       </div>
     );
   }
